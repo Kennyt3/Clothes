@@ -1,15 +1,16 @@
-import { CiSearch } from 'react-icons/ci'
-import { useProvider } from '../clothcontext'
-import Cloths from './cloths'
-import Cart from './cart'
+import { CiSearch } from "react-icons/ci";
+import { useProvider } from "../clothcontext";
+import Cloths from "./cloths";
+import Cart from "./cart";
+import ClothesTwo from "./ClothesTwo";
 const Hero = () => {
-  const { lightmode, cartopen } = useProvider()
+  const { lightmode, cartopen } = useProvider();
   return (
     <div className={`max-w-[1200px] mx-auto relative`}>
       <div className={`pt-10`}>
         <h1
           className={`hidden md:block text-center text-2xl leading-[28.8px] font-bold mt-5 ${
-            !lightmode && 'text-darksearch'
+            !lightmode && "text-darksearch"
           }`}
         >
           Lorem ipsum dolor sit amet consectetur
@@ -23,25 +24,26 @@ const Hero = () => {
               size={15}
             />
             <input
-              type='search'
-              placeholder='search for item'
+              type="search"
+              placeholder="search for item"
               className={`w-full h-[40px]  focus:border-none hover:border-none sm:block pl-10 bg-plain ${
-                !lightmode && 'bg-white'
+                !lightmode && "bg-white"
               }`}
             />
           </label>
           <div
             className={`${
-              cartopen ? 'block' : 'hidden'
+              cartopen ? "block" : "hidden"
             } absolute top-0 right-0`}
           >
             <Cart />
           </div>
         </div>
-        <Cloths />
+        {/* <Cloths /> */}
+        <ClothesTwo />
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Hero
+export default Hero;

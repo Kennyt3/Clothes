@@ -1,6 +1,6 @@
-import { clothdata } from '../clothsdata'
-import { BsChevronLeft, BsChevronRight } from 'react-icons/bs'
-import { useProvider } from '../clothcontext'
+import { clothdata } from "../clothsdata";
+import { BsChevronLeft, BsChevronRight } from "react-icons/bs";
+import { useProvider } from "../clothcontext";
 const Cloths = () => {
   const {
     sizeArr,
@@ -13,9 +13,9 @@ const Cloths = () => {
     prevQuant,
     nextQuant,
     updateCart,
-  } = useProvider()
+  } = useProvider();
   return (
-    <div className='md:mt-40 max-w-[1000px] mx-auto '>
+    <div className="md:mt-40 max-w-[1000px] mx-auto ">
       <div
         className={`grid grid-cols-1 ll:grid-cols-2 ml:grid-cols-3  md:grid-cols-4
         mx-auto  gap-5  px-3 pb-24`}
@@ -35,7 +35,7 @@ const Cloths = () => {
                   </h5>
                   <p
                     className={`text-deets font-medium ${
-                      index === selected ? 'hidden' : 'block'
+                      index === selected ? "hidden" : "block"
                     }  text-xl leading-6`}
                   >
                     {price}
@@ -43,12 +43,12 @@ const Cloths = () => {
                 </div>
                 <div
                   className={`my-3 ${
-                    index === selected ? 'block' : 'invisible'
+                    index === selected ? "block" : "invisible"
                   }`}
                 >
                   <div className={`flex justify-between`}>
                     <div className={`flex items-center gap-1`}>
-                      <h4 className='text-xs text-deets font-medium '>Size</h4>
+                      <h4 className="text-xs text-deets font-medium ">Size</h4>
                       <div
                         className={`text-xs text-deets  font-medium flex items-center justify-center`}
                       >
@@ -60,15 +60,15 @@ const Cloths = () => {
                         <BsChevronRight onClick={nextSize} />
                       </div>
                     </div>
-                    <div className='flex items-center gap-1'>
-                      <h4 className='text-xs text-deets font-medium'>
+                    <div className="flex items-center gap-1">
+                      <h4 className="text-xs text-deets font-medium">
                         Quality
                       </h4>
                       <div
                         className={`text-xs text-deets font-medium flex items-center justify-center`}
                       >
                         <BsChevronLeft onClick={() => prevQuant(index)} />
-                        <p className='bg-plain rounded-sm'>{quant}</p>
+                        <p className="bg-plain rounded-sm">{quant}</p>
                         {/* <p className='bg-plain rounded-sm'>{num + 1}</p> */}
                         <BsChevronRight onClick={() => nextQuant(index)} />
                       </div>
@@ -79,9 +79,9 @@ const Cloths = () => {
                       {price}
                     </h5>
                     <button
-                      className='text-smheader font-medium text-xs p-1 border border-logo'
+                      className="text-smheader font-medium text-xs p-1 border border-logo"
                       onClick={() => {
-                        return updateCart(index)
+                        return updateCart(index);
                       }}
                     >
                       Add to cart
@@ -90,13 +90,13 @@ const Cloths = () => {
                 </div>
               </div>
             </div>
-          )
+          );
         })}
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Cloths
+export default Cloths;
 
 // grid-cols-1 xl:grid-cols-2 sm:grid-cols-3 lg:grid-cols-4
