@@ -6,8 +6,14 @@ import { CiSearch } from 'react-icons/ci'
 import { TfiClose } from 'react-icons/tfi'
 
 const Navbar = () => {
-  const { lightmode, toggleLightmode, searchopen, openSearch, closeSearch } =
-    useAppContext()
+  const {
+    lightmode,
+    toggleLightmode,
+    searchopen,
+    openSearch,
+    closeSearch,
+    toggleCart,
+  } = useAppContext()
   return (
     <div
       className={`h-full py-[15px] px-4 ll:px-7 sm:px-10 flex  items-center justify-between ${
@@ -53,7 +59,7 @@ const Navbar = () => {
         <BsHandbag
           size={20}
           className={`text-logo ml-5 ${!lightmode && 'md:text-white'}`}
-          // onClick={toggleCart}
+          onClick={toggleCart}
         />
       </div>
     </div>

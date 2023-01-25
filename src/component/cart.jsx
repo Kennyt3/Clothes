@@ -1,16 +1,19 @@
 import React from 'react'
 import { useClothProvider } from '../context/clothContext'
+import { useCartProvider } from '../context/cartContext'
 
+import { BsChevronLeft, BsChevronRight } from 'react-icons/bs'
 const Cart = () => {
-  const { state } = useClothProvider()
-  const cart = state.cart
+  const { state: clothstate } = useClothProvider()
+  const { increaseQuantity } = useCartProvider()
+  const cart = clothstate.cart
   return (
     <div className={` w-[250px] z-[1] bg-white  text-black px-3`}>
       <div className={`border-b-[1px]  border-bod pt-[60px]`}>
         <h4 className={`font-medium text-lg leading-[24.2px] mb-[60px]`}>
           items in cart ({cart.length || 0})
         </h4>
-        {cart.map(({ id, name, price, num }, index) => {
+        {cart.map(({ id, name, price, val }, index) => {
           return (
             <div key={index} className={` border-t-[1px] border-bod`}>
               <div className={`flex justify-between pt-[30px]`}>
@@ -33,8 +36,12 @@ const Cart = () => {
                   </p>
                   <div className={`flex justify-between items-center`}>
                     <BsChevronLeft />
-                    <p>{num}</p>
-                    <BsChevronRight />
+                    <p>{val}</p>
+                    <BsChevronRight
+                      onClick={() => {
+                        increaseQuantity(index)
+                      }}
+                    />
                   </div>
                 </div>
               </div>

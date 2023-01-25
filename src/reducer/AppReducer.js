@@ -5,6 +5,11 @@ const AppReducer = (state, action) => {
         ...state,
         lightmode: !state.lightmode,
       }
+    case 'TOGGLE_CART':
+      return {
+        ...state,
+        cartopen: !state.cartopen,
+      }
 
     case 'SEARCH_OPEN':
       return {

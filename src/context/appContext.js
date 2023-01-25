@@ -6,6 +6,7 @@ const AppProvider = ({ children }) => {
   const initialState = {
     lightmode: false,
     searchopen: false,
+    cartopen: false,
   }
   const toggleLightmode = () => {
     dispatch({
@@ -24,18 +25,24 @@ const AppProvider = ({ children }) => {
     })
   }
 
+  const toggleCart = () => {
+    dispatch({
+      type: 'TOGGLE_CART',
+    })
+  }
+
   const [state, dispatch] = useReducer(AppReducer, initialState)
   return (
     <AppContext.Provider
       value={{
         useAppContext,
-
         state,
         lightmode: state.lightmode,
         toggleLightmode,
         searchopen: state.searchopen,
         openSearch,
         closeSearch,
+        toggleCart,
       }}
     >
       {children}
