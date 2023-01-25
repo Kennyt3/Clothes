@@ -1,16 +1,16 @@
 import React from 'react'
 import Navbar from './navbar'
-import { useProvider } from '../clothcontext'
+import { useAppContext } from '../context/appContext'
 
 const Header = () => {
-  const { lightmode } = useProvider()
+  const { lightmode } = useAppContext()
   return (
     <div
-      className={`h-[50px] sm:h-[70px] ${
-        !lightmode && 'bg-smheader sm:bg-header'
-      }`}
+      className={`${
+        !lightmode && 'bg-smheader sm:bg-header text-white'
+      } h-[50px] sm:h-[70px] `}
     >
-      <div className={`max-w-[1200px] h-full mx-auto`}>
+      <div className='max-w-[1200px] mx-auto h-full'>
         <Navbar />
       </div>
     </div>

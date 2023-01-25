@@ -1,23 +1,9 @@
 import React from 'react'
-import { useProvider } from '../clothcontext'
-import { BsChevronLeft, BsChevronRight } from 'react-icons/bs'
+import { useClothProvider } from '../context/clothContext'
 
 const Cart = () => {
-  const {
-    cart,
-    setCart,
-    cartsel,
-    updateCartsel,
-    prevcartQuant,
-    nextcartQuant,
-    quant,
-    cartRef,
-  } = useProvider()
-  const removeItem = (index) => {
-    index === cartsel &&
-      setCart((cart) => cart.filter((el) => cart.indexOf(el) !== cartsel))
-  }
-
+  const { state } = useClothProvider()
+  const cart = state.cart
   return (
     <div className={` w-[250px] z-[1] bg-white  text-black px-3`}>
       <div className={`border-b-[1px]  border-bod pt-[60px]`}>
@@ -26,11 +12,7 @@ const Cart = () => {
         </h4>
         {cart.map(({ id, name, price, num }, index) => {
           return (
-            <div
-              key={index}
-              className={` border-t-[1px] border-bod`}
-              onClick={() => updateCartsel(index)}
-            >
+            <div key={index} className={` border-t-[1px] border-bod`}>
               <div className={`flex justify-between pt-[30px]`}>
                 <h5 className={`text-lg font-semibold leading-[20px]`}>
                   {name}
@@ -41,10 +23,7 @@ const Cart = () => {
               </div>
               <div className={`flex justify-between py-[24px]`}>
                 <button
-                  className={`text-danger ${
-                    index === cartsel ? 'block' : 'invisible'
-                  } capitalize text-lg font-normal leading-[24px]`}
-                  onClick={() => removeItem(index)}
+                  className={`text-danger capitalize text-lg font-normal leading-[24px]`}
                 >
                   Remove item
                 </button>
@@ -53,13 +32,9 @@ const Cart = () => {
                     Qty
                   </p>
                   <div className={`flex justify-between items-center`}>
-                    <BsChevronLeft
-                      onClick={() => index === cartsel && prevcartQuant(index)}
-                    />
-                    <p ref={cartRef}>{num}</p>
-                    <BsChevronRight
-                      onClick={() => index === cartsel && nextcartQuant(index)}
-                    />
+                    <BsChevronLeft />
+                    <p>{num}</p>
+                    <BsChevronRight />
                   </div>
                 </div>
               </div>
@@ -70,4 +45,5 @@ const Cart = () => {
     </div>
   )
 }
+
 export default Cart
