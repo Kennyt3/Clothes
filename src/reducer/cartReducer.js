@@ -13,6 +13,11 @@ const cartReducer = (state, action) => {
       return {
         ...state,
       }
+    case 'SET_CART':
+      return {
+        ...state,
+        cart: action.payload.cart,
+      }
     default:
       return {
         ...state,

@@ -1,15 +1,28 @@
-import { useReducer, useContext, createContext } from 'react'
+import { useReducer, useContext, createContext, useEffect } from 'react'
 import cartReducer from '../reducer/cartReducer'
 import { useClothProvider } from './clothContext'
 const cartContext = createContext()
 
 const CartProvider = ({ children }) => {
-  const { state: cartstate } = useClothProvider()
+  const { state: clothstate } = useClothProvider()
+
+  useEffect(() => {
+    setCart()
+  }, [clothstate])
+
   const initialState = {
-    cart: cartstate.cart,
+    cart: [],
     selected: undefined,
   }
 
+  const setCart = () => {
+    dispatch({
+      type: 'SET_CART',
+      payload: {
+        cart: clothstate.cart,
+      },
+    })
+  }
   const selectIndex = (index) => {
     dispatch({
       type: 'SET_SELECTED',
@@ -20,15 +33,14 @@ const CartProvider = ({ children }) => {
   }
   const increaseQuantity = (index) => {
     selectIndex(index)
-    // let newArr = [...state.cart, (state.cart[index].val += 1)]
-    // dispatch({
-    //   type: 'INCREASE_QUANTITY',
-    //   payload: {
-    //     newdata: newArr,
-    //   },
-    // })
-    console.log(state.cart[index])
-    console.log(cartstate.cart)
+    let newArr = [...state.cart, (state.cart[index].val += 1)]
+    dispatch({
+      type: 'INCREASE_QUANTITY',
+      payload: {
+        newdata: newArr,
+      },
+    })
+    console.log(state.cart)
   }
   const reduceQuantity = (index) => {
     selectIndex(index)

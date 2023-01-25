@@ -5,7 +5,7 @@ import { useCartProvider } from '../context/cartContext'
 import { BsChevronLeft, BsChevronRight } from 'react-icons/bs'
 const Cart = () => {
   const { state: clothstate } = useClothProvider()
-  const { increaseQuantity } = useCartProvider()
+  const { increaseQuantity, reduceQuantity } = useCartProvider()
   const cart = clothstate.cart
   return (
     <div className={` w-[250px] z-[1] bg-white  text-black px-3`}>
@@ -35,7 +35,11 @@ const Cart = () => {
                     Qty
                   </p>
                   <div className={`flex justify-between items-center`}>
-                    <BsChevronLeft />
+                    <BsChevronLeft
+                      onClick={() => {
+                        reduceQuantity(index)
+                      }}
+                    />
                     <p>{val}</p>
                     <BsChevronRight
                       onClick={() => {
