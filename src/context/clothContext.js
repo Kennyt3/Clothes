@@ -83,9 +83,25 @@ const ClothProvider = ({ children }) => {
       newdata: newData,
     })
   }
-  const addToCart = (productionItem, index) => {
+  const addToCart = (productItem, index) => {
+    let newCart
+    const existingIndex = state.cart.findIndex(
+      (item) => item.id === productItem.id
+    )
     selectIndex(index)
-    let newCart = [...state.cart, productionItem]
+    if (
+      state.cart[existingIndex]?.id === productItem.id &&
+      state.cart[existingIndex]?.num === productItem.num
+    ) {
+      newCart = [
+        ...state.cart,
+        (state.cart[existingIndex].val =
+          state.cart[existingIndex].val + productItem.val),
+      ]
+    } else {
+      newCart = [...state.cart, productItem]
+    }
+    console.log(state.cart[existingIndex])
     dispatch({
       type: 'ADD_TO_CART',
       payload: {
