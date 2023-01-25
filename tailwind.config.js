@@ -16,6 +16,7 @@ module.exports = {
         smheader: 'rgba(23, 25, 28, 1)',
         danger: 'rgba(134, 48, 48, 1)',
         bod: 'rgba(181, 183, 186, 1)',
+        lightsmalnav: 'rgba(248, 248, 248, 1)',
       },
       screens: {
         ll: '350px',

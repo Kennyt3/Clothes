@@ -26,11 +26,15 @@ const clothReducer = (state, action) => {
         ...state,
         cart: action.payload.newcart,
       }
+    case 'RESET_VALUE':
+      return {
+        ...state,
+        data: action.payload.newdata,
+      }
 
     default:
       return {
         ...state,
-        // data: action.payload.newdata,
       }
   }
 }

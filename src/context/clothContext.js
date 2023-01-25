@@ -1,4 +1,4 @@
-import { useReducer, useContext, createContext } from 'react'
+import { useReducer, useContext, createContext, useEffect } from 'react'
 import clothReducer from '../reducer/clothReducer'
 import { clothdata } from '../data/clothdata'
 const clothContext = createContext()
@@ -72,19 +72,29 @@ const ClothProvider = ({ children }) => {
     })
   }
 
-  const addToCart = (index) => {
+  const reset = (index) => {
+    let newData = [
+      ...state.data,
+      (state.data[index].num = 0),
+      (state.data[index].val = 1),
+    ]
+    dispatch({
+      type: 'RESET_VALUES',
+      newdata: newData,
+    })
+  }
+  const addToCart = (productionItem, index) => {
     selectIndex(index)
-    let newCart = state.cart.concat(state.data[index])
-
+    let newCart = [...state.cart, productionItem]
     dispatch({
       type: 'ADD_TO_CART',
       payload: {
         newcart: newCart,
       },
     })
-
-    console.log(state.cart)
+    reset(index)
   }
+
   const [state, dispatch] = useReducer(clothReducer, initialState)
   return (
     <clothContext.Provider

@@ -18,7 +18,7 @@ const Cloths = () => {
         mx-auto  gap-5  px-3 pb-24`}
       >
         {state.data.map((cloth, index) => {
-          const { id, image, name, price, sizeArr: sizes, num, val } = cloth
+          const { id, image, name, price, sizeArr, num, val } = cloth
           return (
             <div className={`bg-white rounded mt-10 px-2 `} key={index}>
               <img src={image} alt={`pic${id}`} className={`bg-plain`} />
@@ -39,7 +39,7 @@ const Cloths = () => {
                         className={`text-xs text-deets  font-medium flex items-center justify-center`}
                       >
                         <BsChevronLeft onClick={() => reduceSize(index)} />
-                        <p className={`uppercase text-xs`}>{sizes[num]}</p>
+                        <p className={`uppercase text-xs`}>{sizeArr[num]}</p>
                         <BsChevronRight onClick={() => increaseSize(index)} />
                       </div>
                     </div>
@@ -65,7 +65,7 @@ const Cloths = () => {
                     <button
                       className='text-smheader font-medium text-xs p-1 border border-logo'
                       onClick={() => {
-                        addToCart(index)
+                        addToCart({ name, price, num, val }, index)
                       }}
                     >
                       Add to cart

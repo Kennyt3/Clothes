@@ -4,7 +4,7 @@ const AppContext = createContext()
 
 const AppProvider = ({ children }) => {
   const initialState = {
-    lightmode: false,
+    lightmode: true,
     searchopen: false,
     cartopen: false,
   }
