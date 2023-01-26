@@ -89,19 +89,19 @@ const ClothProvider = ({ children }) => {
       (item) => item.id === productItem.id
     )
     selectIndex(index)
-    if (
-      state.cart[existingIndex]?.id === productItem.id &&
-      state.cart[existingIndex]?.num === productItem.num
-    ) {
-      newCart = [
-        ...state.cart,
-        (state.cart[existingIndex].val =
-          state.cart[existingIndex].val + productItem.val),
-      ]
-    } else {
+    if (state.cart[existingIndex]?.num !== productItem.num) {
       newCart = [...state.cart, productItem]
+    } else {
+      newCart = [
+        ...state.cart.filter(
+          (item) => item.id !== productItem.id || item.num !== productItem.num
+        ),
+        {
+          ...state.cart[existingIndex],
+          val: state.cart[existingIndex].val + productItem.val,
+        },
+      ]
     }
-    console.log(state.cart[existingIndex])
     dispatch({
       type: 'ADD_TO_CART',
       payload: {
