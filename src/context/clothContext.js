@@ -83,13 +83,21 @@ const ClothProvider = ({ children }) => {
       newdata: newData,
     })
   }
+
+  const setExisting = (productItem) => {
+    return state.cart.findIndex(
+      (item) => item.id === productItem.id && item.num === productItem.num
+    )
+  }
+
   const addToCart = (productItem, index) => {
     let newCart
-    const existingIndex = state.cart.findIndex(
-      (item) => item.id === productItem.id
-    )
+    let existingIndex = setExisting(productItem)
     selectIndex(index)
-    if (state.cart[existingIndex]?.num !== productItem.num) {
+    if (
+      state.cart[existingIndex]?.num !== productItem.num ||
+      state.cart[existingIndex]?.id !== productItem.id
+    ) {
       newCart = [...state.cart, productItem]
     } else {
       newCart = [
