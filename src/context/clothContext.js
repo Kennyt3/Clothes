@@ -149,6 +149,7 @@ const ClothProvider = ({ children }) => {
 
   useEffect(() => {
     getTotal()
+    // eslint-disable-next-line
   }, [state.cart])
   return (
     <clothContext.Provider
@@ -159,6 +160,7 @@ const ClothProvider = ({ children }) => {
         increaseSize,
         reduceSize,
         addToCart,
+        getTotal,
         removeFromCart,
         total: state.total,
       }}

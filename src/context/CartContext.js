@@ -4,11 +4,13 @@ import { useClothProvider } from './clothContext'
 const cartContext = createContext()
 
 const CartProvider = ({ children }) => {
-  const { state: clothstate } = useClothProvider()
+  const { state: clothstate, getTotal } = useClothProvider()
 
   useEffect(() => {
     setCart()
-  }, [clothstate])
+    getTotal()
+    // eslint-disable-next-line
+  }, [clothstate, getTotal])
 
   const initialState = {
     cart: [],
@@ -24,21 +26,6 @@ const CartProvider = ({ children }) => {
       },
     })
   }
-
-  // const getTotal = () => {
-  //   let total = 0
-  //   state.cart.map(
-  //     (item) =>
-  //       (total += Number(item.price.replace(/[^0-9.]+/g, '')) * item.val)
-  //   )
-
-  //   dispatch({
-  //     type: 'GET_TOTAL',
-  //     payload: {
-  //       total: total,
-  //     },
-  //   })
-  // }
 
   const selectIndex = (index) => {
     dispatch({
