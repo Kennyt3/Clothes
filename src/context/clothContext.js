@@ -1,4 +1,4 @@
-import { useReducer, useContext, createContext, useEffect } from 'react'
+import { useReducer, useContext, createContext } from 'react'
 import clothReducer from '../reducer/clothReducer'
 import { clothdata } from '../data/clothdata'
 const clothContext = createContext()
@@ -119,6 +119,17 @@ const ClothProvider = ({ children }) => {
     reset(index)
   }
 
+  const removeFromCart = (index) => {
+    let newCart = state.cart.filter(
+      (item) => state.cart.indexOf(item) !== index
+    )
+    dispatch({
+      type: 'REMOVE_FROM_CART',
+      payload: {
+        newcart: newCart,
+      },
+    })
+  }
   const [state, dispatch] = useReducer(clothReducer, initialState)
   return (
     <clothContext.Provider
@@ -129,6 +140,7 @@ const ClothProvider = ({ children }) => {
         increaseSize,
         reduceSize,
         addToCart,
+        removeFromCart,
       }}
     >
       {children}
