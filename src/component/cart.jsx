@@ -4,7 +4,7 @@ import { useCartProvider } from '../context/cartContext'
 
 import { BsChevronLeft, BsChevronRight } from 'react-icons/bs'
 const Cart = () => {
-  const { state: clothstate, removeFromCart } = useClothProvider()
+  const { state: clothstate, removeFromCart, total } = useClothProvider()
   const { increaseQuantity, reduceQuantity } = useCartProvider()
   const cart = clothstate.cart
   return (
@@ -55,6 +55,9 @@ const Cart = () => {
             </div>
           )
         })}
+        <div>
+          <h1>Total: ₦{total}</h1>
+        </div>
       </div>
     </div>
   )

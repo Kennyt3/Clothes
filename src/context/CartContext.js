@@ -16,6 +16,7 @@ const CartProvider = ({ children }) => {
   }
 
   const setCart = () => {
+    // getTotal()
     dispatch({
       type: 'SET_CART',
       payload: {
@@ -23,6 +24,22 @@ const CartProvider = ({ children }) => {
       },
     })
   }
+
+  // const getTotal = () => {
+  //   let total = 0
+  //   state.cart.map(
+  //     (item) =>
+  //       (total += Number(item.price.replace(/[^0-9.]+/g, '')) * item.val)
+  //   )
+
+  //   dispatch({
+  //     type: 'GET_TOTAL',
+  //     payload: {
+  //       total: total,
+  //     },
+  //   })
+  // }
+
   const selectIndex = (index) => {
     dispatch({
       type: 'SET_SELECTED',
