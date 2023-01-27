@@ -4,27 +4,22 @@ import { useClothProvider } from './clothContext'
 const cartContext = createContext()
 
 const CartProvider = ({ children }) => {
-  const { state: clothstate, getTotal } = useClothProvider()
+  const { state: clothstate } = useClothProvider()
 
   useEffect(() => {
-    setCart()
-    // getTotal()
-    // eslint-disable-next-line
-  }, [clothstate, getTotal])
-
-  const initialState = {
-    cart: [],
-    selected: undefined,
-  }
-
-  const setCart = () => {
-    // getTotal()
     dispatch({
       type: 'SET_CART',
       payload: {
         cart: clothstate.cart,
       },
     })
+    // getTotal()
+    // eslint-disable-next-line
+  }, [clothstate])
+
+  const initialState = {
+    cart: [],
+    selected: undefined,
   }
 
   const selectIndex = (index) => {
