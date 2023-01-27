@@ -8,7 +8,7 @@ const CartProvider = ({ children }) => {
 
   useEffect(() => {
     setCart()
-    getTotal()
+    // getTotal()
     // eslint-disable-next-line
   }, [clothstate, getTotal])
 

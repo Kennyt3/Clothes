@@ -12,10 +12,10 @@ const Cloths = () => {
     addToCart,
   } = useClothProvider()
   return (
-    <div className='md:mt-40 max-w-[1000px] mx-auto '>
+    <div className='md:mt-10 max-w-[1000px] mx-auto '>
       <div
         className={`grid grid-cols-1 ll:grid-cols-2 ml:grid-cols-3  md:grid-cols-4
-        mx-auto  gap-5  px-3 pb-24`}
+        mx-auto  gap-5  px-3 pb-10`}
       >
         {state.data.map((cloth, index) => {
           const { id, image, name, price, sizeArr, num, val } = cloth

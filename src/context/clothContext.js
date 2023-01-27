@@ -148,7 +148,7 @@ const ClothProvider = ({ children }) => {
   }
 
   useEffect(() => {
-    getTotal()
+    // getTotal()
     // eslint-disable-next-line
   }, [state.cart])
   return (

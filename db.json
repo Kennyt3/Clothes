@@ -1,0 +1,76 @@
+{
+  "clothdata": [
+    {
+      "id": 1,
+      "image": "",
+      "name": "Tee1",
+      "price": "₦6,500",
+      "sizeArr": ["xxs", "xs", "sm", "md", "lg", "xl", "xxl"],
+      "num": 0,
+      "val": 1
+    },
+    {
+      "id": 2,
+      "image": "",
+      "name": "Tee2",
+      "price": "₦6,500",
+      "sizeArr": ["xxs", "xs", "sm", "md", "lg", "xl", "xxl"],
+      "num": 0,
+      "val": 1
+    },
+    {
+      "id": 3,
+      "image": "",
+      "name": "Tee3",
+      "price": "₦6,500",
+      "sizeArr": ["xxs", "xs", "sm", "md", "lg", "xl", "xxl"],
+      "num": 0,
+      "val": 1
+    },
+    {
+      "id": 4,
+      "image": "",
+      "name": "Tee4",
+      "price": "₦6,500",
+      "sizeArr": ["xxs", "xs", "sm", "md", "lg", "xl", "xxl"],
+      "num": 0,
+      "val": 1
+    },
+    {
+      "id": 5,
+      "image": "",
+      "name": "Tee5",
+      "price": "₦6,500",
+      "sizeArr": ["xxs", "xs", "sm", "md", "lg", "xl", "xxl"],
+      "num": 0,
+      "val": 1
+    },
+    {
+      "id": 6,
+      "image": "",
+      "name": "Tee6",
+      "price": "₦6,500",
+      "sizeArr": ["xxs", "xs", "sm", "md", "lg", "xl", "xxl"],
+      "num": 0,
+      "val": 1
+    },
+    {
+      "id": 7,
+      "image": "",
+      "name": "Tee7",
+      "price": "₦6,500",
+      "sizeArr": ["xxs", "xs", "sm", "md", "lg", "xl", "xxl"],
+      "num": 0,
+      "val": 1
+    },
+    {
+      "id": 8,
+      "image": "",
+      "name": "Tee8",
+      "price": "₦6,500",
+      "sizeArr": ["xxs", "xs", "sm", "md", "lg", "xl", "xxl"],
+      "num": 0,
+      "val": 1
+    }
+  ]
+}
